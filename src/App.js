@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+// import React from  'react'//need for class based
+import { useState } from 'react'  
 
+import Header from './components/Header';
+import Tasks from './components/Tasks';
 function App() {
+  const [tasks, setTasks ] = useState([
+    {
+        id: 1,
+        text: 'Doctor Appointment',
+        date: 'Feb 5th at 6:20am',
+        remainder: true,
+    },
+    {
+        id: 2,
+        text: 'Job Interview',
+        date: 'Mar 16th at 2:20pm',
+        remainder: true,
+    },
+    {
+        id: 3,
+        text: 'Principle Appointment',
+        date: 'Jan 5th at 7:20am',
+        remainder: false,
+    }
+])
+
+//Delete Task
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <Tasks  tasks = {tasks}/>
     </div>
   );
 }
 
-export default App;
+
+// class App extends React.Component{
+//   render(){
+//     return <h1>hello world please help me.</h1>
+//   }
+// }
+export default App; 
